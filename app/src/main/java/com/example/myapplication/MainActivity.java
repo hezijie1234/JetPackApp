@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.myapplication.databinding.DataBindingActivity;
+import com.example.myapplication.navigation.NavigationActivity;
 import com.example.myapplication.room.JetRoomActivity;
 
 public class MainActivity extends AppCompatActivity  {
@@ -102,5 +103,9 @@ public class MainActivity extends AppCompatActivity  {
 
     public void intentToRoom(View view) {
         startActivity(new Intent(this, JetRoomActivity.class));
+    }
+
+    public void intentToNavigation(View view) {
+        startActivity(new Intent(this, NavigationActivity.class));
     }
 }

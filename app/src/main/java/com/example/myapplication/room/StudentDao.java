@@ -1,5 +1,6 @@
 package com.example.myapplication.room;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -33,6 +34,9 @@ public interface StudentDao {
     //只查N个字段
     @Query("select name,pwd from Student")
     public List<StudentTuple> getRecord();
+
+    @Query("select * from Student order by uid")
+    LiveData<List<Student>> getAllStudentLiveData();
 
 }
 

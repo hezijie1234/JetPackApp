@@ -1,25 +1,57 @@
 package com.example.myapplication.room;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 import com.example.myapplication.R;
 
 import java.util.List;
 
 public class JetRoomActivity extends AppCompatActivity {
-
+    StudentViewModel studentViewModel;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jet_room);
 
         //数据库的操作应该是在子线程
-        DbTest t=new DbTest();
-        t.start();
+//        DbTest t=new DbTest();
+//        t.start();
+
+        listView=findViewById(R.id.listView);
+        studentViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(StudentViewModel.class);
+        studentViewModel.getAllStudentLiveData().observe(this, new Observer<List<Student>>() {
+            @Override
+            public void onChanged(List<Student> students) {
+                listView.setAdapter(new GoodsAdapter(JetRoomActivity.this,students));
+            }
+        });
+            //运行一次创建数据，就注释
+//        for (int i = 0; i < 50; i++) {
+//            studentViewModel.insert(new Student("jett","123",1));
+//        }
+//
+        new Thread(){
+            @Override
+            public void run() {
+                int x=0;
+                for (int i = 0; i < 50; i++) {
+                    try{
+                        Thread.sleep(1000);
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                    studentViewModel.update(new Student(6,"jett"+i,"123",1));
+                }
+            }
+        }.start();
     }
 
     public class DbTest extends Thread{

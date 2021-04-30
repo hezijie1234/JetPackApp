@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Address.class,parentColumns = "addressId",childColumns = "uid"))
+@Entity
 public class Student {
     @PrimaryKey(autoGenerate = true)
     private int uid;
@@ -15,8 +15,38 @@ public class Student {
     private String password;
     @ColumnInfo(name = "addressId")
     private int addressId;
+    @ColumnInfo(name="flag")
+    private boolean flag;
+    @ColumnInfo(name="flag2")
+    private boolean flag2;
+
+    public boolean isFlag2() {
+        return flag2;
+    }
+
+    public void setFlag2(boolean flag2) {
+        this.flag2 = flag2;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+    //重复构造方法room无法识别，会报错
+    public Student() {
+    }
 
     public Student(String name, String password, int addressId) {
+        this.name = name;
+        this.password = password;
+        this.addressId = addressId;
+    }
+
+    public Student(int uid, String name, String password, int addressId) {
+        this.uid = uid;
         this.name = name;
         this.password = password;
         this.addressId = addressId;

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".room.JetRoomActivity"></activity>
+        <activity android:name=".paging.PagingActivity"></activity>
+        <activity android:name=".navigation.NavigationActivity" />
+        <activity android:name=".room.JetRoomActivity" />
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".LiveDataBusActivity" />
         <activity android:name=".MainActivity">
