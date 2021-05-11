@@ -55,5 +55,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_btn3"
         />
+    <Button
+        android:id="@+id/tv_btn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到page界面"
+        android:onClick="intentToPaging"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_btn4"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

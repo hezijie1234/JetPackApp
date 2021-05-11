@@ -21,6 +21,7 @@ public class DataBindingActivity extends AppCompatActivity {
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding);
         user = new User("hezijie", "12345");
         viewDataBinding.setUser(user);
+
         new Thread(new Runnable() {
             @Override
             public void run() {

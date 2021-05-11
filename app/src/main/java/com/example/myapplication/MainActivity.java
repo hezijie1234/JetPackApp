@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.databinding.DataBindingActivity;
 import com.example.myapplication.navigation.NavigationActivity;
+import com.example.myapplication.paging.PagingActivity;
 import com.example.myapplication.room.JetRoomActivity;
 
 public class MainActivity extends AppCompatActivity  {
@@ -107,5 +108,9 @@ public class MainActivity extends AppCompatActivity  {
 
     public void intentToNavigation(View view) {
         startActivity(new Intent(this, NavigationActivity.class));
+    }
+
+    public void intentToPaging(View view) {
+        startActivity(new Intent(this, PagingActivity.class));
     }
 }
