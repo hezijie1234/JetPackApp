@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.myapplication.R;
 import com.example.myapplication.paging.itemsource.Person;
 import com.example.myapplication.paging.itemsource.PersonRecyclerPagingAdapter;
 import com.example.myapplication.paging.itemsource.PersonViewModel;
+import com.example.myapplication.paging.pagekeysource.PersonRecyclerKeyPagingAdapter;
+import com.example.myapplication.paging.pagekeysource.PersonViewModel2;
 
 public class PagingActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -20,6 +23,9 @@ public class PagingActivity extends AppCompatActivity {
     StudentViewModel viewModel;
     PersonViewModel personViewModel;
     PersonRecyclerPagingAdapter personRecyclerPagingAdapter;
+    private PersonViewModel2 personViewModel2;
+    private PersonRecyclerKeyPagingAdapter personRecyclerKeyPagingAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,16 +49,29 @@ public class PagingActivity extends AppCompatActivity {
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //2ItemKeyDataSource测试
-        personViewModel = new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).get(PersonViewModel.class);
-        personViewModel.getPagedListLiveData().observe(this, new Observer<PagedList<Person>>() {
+//        personViewModel = new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).get(PersonViewModel.class);
+//        personViewModel.getPagedListLiveData().observe(this, new Observer<PagedList<Person>>() {
+//            @Override
+//            public void onChanged(PagedList<Person> people) {
+//                // 再这里更新适配器数据
+//                personRecyclerPagingAdapter.submitList(people);
+//            }
+//        });
+//
+//        recyclerView.setAdapter(personRecyclerPagingAdapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //3.KeyPageDataSource测试
+        personRecyclerKeyPagingAdapter = new PersonRecyclerKeyPagingAdapter();
+        personViewModel2 = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(PersonViewModel2.class);
+        personViewModel2.getPagedListLiveData().observe(this, new Observer<PagedList<Person>>() {
             @Override
             public void onChanged(PagedList<Person> people) {
-                // 再这里更新适配器数据
-                personRecyclerPagingAdapter.submitList(people);
+                Log.e("111", "onChanged: "+ people );
+                personRecyclerKeyPagingAdapter.submitList(people);
             }
         });
-
-        recyclerView.setAdapter(personRecyclerPagingAdapter);
+        recyclerView.setAdapter(personRecyclerKeyPagingAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }

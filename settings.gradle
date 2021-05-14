@@ -1,2 +1,4 @@
+include ':jetpackmvvm'
+include ':use_paging_db'
 include ':app'
 rootProject.name = "My Application"
