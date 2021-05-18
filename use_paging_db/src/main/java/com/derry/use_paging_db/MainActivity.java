@@ -1,7 +1,9 @@
 package com.derry.use_paging_db;
 
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -66,7 +68,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        isNightMode();
+    }
 
+    public void isNightMode(){
+
+        Log.e("111", "isNightMode: " + getResources().getConfiguration().uiMode );
     }
 
     static class InsertAsyncTask extends AsyncTask<Student, Void, Void> {
