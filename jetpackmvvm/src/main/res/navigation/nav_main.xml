@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/main_fragment"
+    android:id="@+id/nav_main">
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.lianhechuangxin.jetpackmvvm.fragment.MainFragment"
+        android:label="lable_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/search_fragment"
+            app:enterAnim="@anim/h_fragment_enter"
+            app:exitAnim="@anim/h_fragment_exit"
+            app:popEnterAnim="@anim/h_fragment_pop_enter"
+            app:popExitAnim="@anim/h_fragment_pop_exit"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.lianhechuangxin.jetpackmvvm.fragment.SearchFragment"
+        android:label="lable_search"
+        tools:layout="@layout/fragment_search"/>
+
+
+</navigation>

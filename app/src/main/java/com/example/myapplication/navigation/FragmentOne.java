@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+
 
 import com.example.myapplication.R;
 import com.google.android.material.navigation.NavigationView;
@@ -28,7 +30,10 @@ public class FragmentOne extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.btn_1);
+//                NavHostFragment.findNavController(this).navigate(R.id.btn_1);
             }
         });
     }
+
+
 }

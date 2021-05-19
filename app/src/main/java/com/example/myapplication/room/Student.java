@@ -3,6 +3,7 @@ package com.example.myapplication.room;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -38,13 +39,13 @@ public class Student {
     //重复构造方法room无法识别，会报错
     public Student() {
     }
-
+    @Ignore
     public Student(String name, String password, int addressId) {
         this.name = name;
         this.password = password;
         this.addressId = addressId;
     }
-
+    @Ignore
     public Student(int uid, String name, String password, int addressId) {
         this.uid = uid;
         this.name = name;

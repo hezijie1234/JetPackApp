@@ -7,6 +7,9 @@
         <variable
             name="user"
             type="com.example.myapplication.databinding.User" />
+        <variable
+            name="click"
+            type="com.example.myapplication.databinding.DataBindingActivity.ClickProxy" />
     </data>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,5 +25,17 @@
             android:text="@{user.password}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮一"
+            android:onClick="@{() -> click.btn1Click()}"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮二"
+            android:onClick="@{() -> click.btn2Click()}"
+            />
     </LinearLayout>
 </layout>
