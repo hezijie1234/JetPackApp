@@ -13,8 +13,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.xiangxue.puremusic.App;
-import com.xiangxue.puremusic.bridge.callback.SharedViewModel;
+import com.lianhechuangxin.jetpackmvvm.App;
+import com.lianhechuangxin.jetpackmvvm.bridge.SharedViewModel;
+
 
 /**
  * 所有Fragment的父类

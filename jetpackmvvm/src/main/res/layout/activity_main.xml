@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="main_model"
             type="com.lianhechuangxin.jetpackmvvm.bridge.MainActivityViewModel" />
+
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/dl_main"
+        isOpenDrawer="@{main_model.openDrawer}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -25,32 +29,42 @@
             android:id="@+id/sliding"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:foregroundGravity="bottom"
-            app:umanoDragView="@+id/slide_fragment_host"
-            app:umanoOverlay="false"
-            app:umanoPanelHeight="55dp"
-            app:umanoShadowHeight="5dp"/>
-        <!-- 主页效果的fragment显示
-                         就是 main 的效果，当点击 main 上面的 菜单图标的时候  跳转到 “测试搜索界面”
-                     -->
+            android:gravity="bottom"
+            sothree:umanoDragView="@+id/slide_fragment_host"
+            sothree:umanoOverlay="false"
+            sothree:umanoPanelHeight="55dp"
+            sothree:umanoShadowHeight="5dp">
+            <!-- 主页效果的fragment显示
+                             就是 main 的效果，当点击 main 上面的 菜单图标的时候  跳转到 “测试搜索界面”
+                         -->
+            <fragment
+                android:id="@+id/main_fragment_host"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_main" />
+
+            <!-- 底部播放条 底部播放项，非常的重要 -->
+            <fragment
+                android:id="@+id/slide_fragment_host"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_slide" />
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+        <!-- 点击菜单图标后，弹出左侧的 "白色半框界面" -->
         <fragment
-            android:id="@+id/main_fragment_host"
+            android:id="@+id/drawer_fragment_host"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
+            android:layout_width="330dp"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_main" />
-
-        <!-- 底部播放条 底部播放项，非常的重要 -->
-        <fragment
-            android:id="@+id/slide_fragment_host"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_slide" />
-
+            app:navGraph="@navigation/nav_drawer" />
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

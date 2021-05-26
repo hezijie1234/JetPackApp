@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.xiangxue.puremusic.R;
+import com.lianhechuangxin.jetpackmvvm.R;
 
 
 /**

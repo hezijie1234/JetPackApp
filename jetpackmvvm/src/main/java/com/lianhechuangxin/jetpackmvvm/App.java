@@ -29,7 +29,7 @@ public class App extends Application implements ViewModelStoreOwner {
         mAppViewModelStore = new ViewModelStore();
 
         // 同学们，这里必须初始化一下，是为了保证播放音乐管理类（PlayerManager.java） 不会为null，从而不引发空指针异常
-        PlayerManager.getInstance().init(this);
+//        PlayerManager.getInstance().init(this);
     }
 
     public ViewModelProvider getAppViewModelProvider(Activity activity) {

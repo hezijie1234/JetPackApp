@@ -31,7 +31,7 @@
 
     <string name="app_summary">享学VIP之JetPack项目</string>
     <string name="project_title">本项目中用到的技术点包括：</string>
-    <string name="Copyright">Product with love by Xiangxue @2020</string>
+    <string name="Copyright">Product with love by hezijie @2020</string>
     <string name="search_page_tip">本页面用于测试 Navigation 路由导航</string>
     <string name="test_download">测试下载，返回页面仍有效</string>
     <string name="test_lifecycle_download">测试下载，离开页面即中止</string>

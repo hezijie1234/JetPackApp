@@ -11,7 +11,8 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.xiangxue.puremusic.player.notification.PlayerReceiver;
+import com.lianhechuangxin.jetpackmvvm.player.notification.PlayerReceiver;
+
 
 /**
  * 在来电时自动协调和暂停音乐播放

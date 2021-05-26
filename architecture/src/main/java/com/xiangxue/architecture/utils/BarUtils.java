@@ -255,6 +255,7 @@ public final class BarUtils {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return null;
         }
+        //此方法执行后，主界面跟布局布满全屏
         transparentStatusBar(activity);
         return applyStatusBarColor(activity, color, isDecor);
     }
@@ -415,6 +416,7 @@ public final class BarUtils {
         Window window = activity.getWindow();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            //这里窗口变成了全屏（包含了状态栏）
             int option = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 int vis = window.getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;

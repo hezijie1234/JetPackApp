@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,11 +15,12 @@ import android.view.animation.Transformation;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.lianhechuangxin.jetpackmvvm.R;
+import com.lianhechuangxin.jetpackmvvm.databinding.FragmentPlayerBinding;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.xiangxue.architecture.utils.DisplayUtils;
 import com.xiangxue.architecture.utils.ScreenUtils;
-import com.xiangxue.puremusic.R;
-import com.xiangxue.puremusic.databinding.FragmentPlayerBinding;
+
 
 /**
  * SlidingUpPanelLayout：可以上下滑动的菜单布
@@ -78,6 +80,8 @@ public class PlayerSlideListener implements SlidingUpPanelLayout.PanelSlideListe
 
     @Override
     public void onPanelSlide(View panel, float slideOffset) {
+        //第一个方法会在滑动的时候不停的执行
+        Log.e("111", "onPanelSlide: 第一个方法"  );
         CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) mBinding.albumArt.getLayoutParams();
 
         //animate albumImage
@@ -115,6 +119,7 @@ public class PlayerSlideListener implements SlidingUpPanelLayout.PanelSlideListe
     @Override
     public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState,
                                     SlidingUpPanelLayout.PanelState newState) {
+        Log.e("111", "onPanelStateChanged: 第二个方法" + previousState + "---" + newState  );
         if (previousState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
             if (mBinding.songProgressNormal.getVisibility() != View.INVISIBLE) {
                 mBinding.songProgressNormal.setVisibility(View.INVISIBLE);
@@ -258,6 +263,9 @@ public class PlayerSlideListener implements SlidingUpPanelLayout.PanelSlideListe
         });
     }
 
+    /**
+     * 过度到全屏的动画
+     */
     private void animateToFullscreen() {
         //album art fullscreen
         albumImageDrawable = mBinding.albumArt.getDrawable();
@@ -308,6 +316,9 @@ public class PlayerSlideListener implements SlidingUpPanelLayout.PanelSlideListe
         mStatus = Status.FULLSCREEN;
     }
 
+    /**
+     * 过渡到普通，只留着下面一条的动画
+     */
     @SuppressWarnings("SuspiciousNameCombination")
     private void animateToNormal() {
         //album art

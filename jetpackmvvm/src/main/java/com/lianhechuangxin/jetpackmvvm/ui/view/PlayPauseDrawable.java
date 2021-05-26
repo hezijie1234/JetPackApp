@@ -26,12 +26,12 @@ public class PlayPauseDrawable extends Drawable {
 
     private static final Property<PlayPauseDrawable, Float> PROGRESS = new Property<PlayPauseDrawable, Float>(Float.class, "progress") {
         @Override
-        public Float get(com.xiangxue.puremusic.ui.view.PlayPauseDrawable d) {
+        public Float get(PlayPauseDrawable d) {
             return d.getProgress();
         }
 
         @Override
-        public void set(com.xiangxue.puremusic.ui.view.PlayPauseDrawable d, Float value) {
+        public void set(PlayPauseDrawable d, Float value) {
             d.setProgress(value);
         }
     };
