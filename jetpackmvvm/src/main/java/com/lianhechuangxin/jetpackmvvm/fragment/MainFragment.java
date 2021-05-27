@@ -42,6 +42,7 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         fragmentMainBinding = FragmentMainBinding.bind(view);
+        fragmentMainBinding.setLifecycleOwner(this);
         mainViewModel = getFragmentViewModelProvider(this).get(MainViewModel.class);
         musicRequestViewModel = getFragmentViewModelProvider(this).get(MusicRequestViewModel.class);
         fragmentMainBinding.setClick(new ClickProxy());

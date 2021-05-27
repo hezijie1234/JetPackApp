@@ -40,6 +40,7 @@ public class PlayerFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
         fragmentMainBinding = FragmentPlayerBinding.bind(view);
+        fragmentMainBinding.setLifecycleOwner(this);
         fragmentMainBinding.setClick(new ClickProxy());
         fragmentMainBinding.setEvent(new EventHandler());
         playerViewModel = getFragmentViewModelProvider(this).get(PlayerViewModel.class);

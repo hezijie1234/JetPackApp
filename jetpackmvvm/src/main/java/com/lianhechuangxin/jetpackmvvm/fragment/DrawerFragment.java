@@ -37,6 +37,7 @@ public class DrawerFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_drawer, container, false);
         infoRequestViewModel = new InfoRequestViewModel();
         fragmentMainBinding = FragmentDrawerBinding.bind(view);
+        fragmentMainBinding.setLifecycleOwner(this);
         return view;
     }
 
