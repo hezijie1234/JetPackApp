@@ -1,5 +1,6 @@
 package com.lianhechuangxin.jetpackmvvm.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.kunminx.player.bean.dto.ChangeMusic;
+import com.lianhechuangxin.jetpackmvvm.DaggerTestActivity;
 import com.lianhechuangxin.jetpackmvvm.R;
 import com.lianhechuangxin.jetpackmvvm.bridge.MainViewModel;
 import com.lianhechuangxin.jetpackmvvm.bridge.MusicRequestViewModel;
@@ -121,7 +123,8 @@ public class MainFragment extends BaseFragment {
    public class ClickProxy{
         public void openMenu(){
 
-            sharedViewModel.openOrCloseDrawer.setValue(true);
+//            sharedViewModel.openOrCloseDrawer.setValue(true);
+            startActivity(new Intent(getActivity(), DaggerTestActivity.class));
         }
 
         public void search(){
