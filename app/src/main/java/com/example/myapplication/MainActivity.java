@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Log.e(TAG, "onCreate: " );
         tvText = findViewById(R.id.tv_text);
@@ -115,4 +116,6 @@ public class MainActivity extends AppCompatActivity  {
     public void intentToPaging(View view) {
         startActivity(new Intent(this, PagingActivity.class));
     }
+
+
 }

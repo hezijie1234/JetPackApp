@@ -23,7 +23,6 @@ public class DataBindingActivity extends AppCompatActivity {
         user = new User("hezijie", "12345");
         viewDataBinding.setClick(new ClickProxy());
         viewDataBinding.setUser(user);
-
         new Thread(new Runnable() {
             @Override
             public void run() {

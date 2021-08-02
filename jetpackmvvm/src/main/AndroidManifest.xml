@@ -15,7 +15,8 @@
         <activity android:name=".DaggerTest3Activity" />
         <activity android:name=".DaggerTest2Activity" />
         <activity android:name=".DaggerTestActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/app_start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

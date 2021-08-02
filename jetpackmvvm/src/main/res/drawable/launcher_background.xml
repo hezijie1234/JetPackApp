@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"  >
+    <!--底层使用蓝色填充色-->
+    <item>
+        <shape>
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+
+    <!--默认缩放-->
+    <item android:top="170dp" >
+        <bitmap
+            android:gravity="top|center_horizontal"
+            android:src="@drawable/splash" />
+    </item>
+</layer-list>

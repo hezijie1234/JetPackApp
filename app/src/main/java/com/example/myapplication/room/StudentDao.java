@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -34,7 +35,7 @@ public interface StudentDao {
     //只查N个字段
     @Query("select name,pwd from Student")
     public List<StudentTuple> getRecord();
-
+    //再这里将数据库与livedata结合起来，能及时刷新数据
     @Query("select * from Student order by uid")
     LiveData<List<Student>> getAllStudentLiveData();
 
